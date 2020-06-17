@@ -150,4 +150,11 @@
         </plugins>
     </build>
 
+<developers>
+<developer>
+<name>Andre Vogelsanger</name>
+<email>andrevog2@hotmail.com</email>
+</developer>
+</developers>
+
 </project>
