@@ -3,7 +3,6 @@ package br.com.caelum.ingresso.validacao;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import br.com.caelum.ingresso.model.Filme;
 
@@ -11,9 +10,9 @@ public class TestaStreams {
 	
 	public static void main(String[] args) {
 		
-		Filme f1 = new Filme("Terminator",Duration.ofHours(1),"Ação");
-		Filme f2 = new Filme("Derminato2",Duration.ofHours(1),"Drama");
-		Filme f3 = new Filme("Aerminator3",Duration.ofHours(1), "Drama");
+		Filme f1 = new Filme("Terminator",Duration.ofHours(1),"Ação",null);
+		Filme f2 = new Filme("Derminato2",Duration.ofHours(1),"Drama",null);
+		Filme f3 = new Filme("Aerminator3",Duration.ofHours(1), "Drama",null);
 		
 		List<Filme> filmes = Arrays.asList(f1,f2,f3);
 		
