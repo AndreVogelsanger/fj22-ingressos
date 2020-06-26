@@ -38,8 +38,14 @@
 								<tr>
 								<c:forEach var="lugar" items="${map.value}">
 									<td class="fileira-assento"><figure>
-										<svg class="assento disponivel" data-lugar="${lugar}" id="${lugar.id}"  version="1.0" id="SEAT" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-												 viewBox="0 0 318.224 305.246" enable-background="new 0 0 318.224 305.246" xml:space="preserve">
+										<svg class="assento ${sessao.isDisponivel(lugar) && !carrinho.isSelecionado(lugar) ? 'disponivel': 'ocupado' }"
+											 onclick="${sessao.isDisponivel(lugar) && !carrinho.isSelecionado(lugar) ? 'changeCheckbox(this)' : '' }"
+										     data-lugar="${lugar}" id="${lugar.id}" version="1.0" id="SEAT" 
+										     xmlns="http://www.w3.org/2000/svg" 
+										     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											viewBox="0 0 318.224 305.246" 
+											enable-background="new 0 0 318.224 305.246"
+											 xml:space="preserve">
 											<g id="FILL">
 												<path d="M269.395,132.246h-15.02V51.414c0-11.758-9.492-21.248-21.248-21.248H85.097
 													c-11.757,0-21.248,9.49-21.248,21.248v80.833H48.827c-8.535,0-15.127,7.505-14.024,15.971l11.406,87.625
@@ -128,6 +134,7 @@
             	var salaId = ${sessao.sala.id};
                 var sessaoId = ${sessao.id};
                 var lugarNome = img.getAttribute('data-lugar');
+             //var lugarNome = img.id;
                 var linhaId = "linha_" + salaId + "_" + sessaoId + "_" + lugarNome;
 
                 console.log(linhaId);
@@ -182,7 +189,7 @@
                     checkbox.checked = true;
 					img.classList.add("escolhido");
 					img.classList.remove("disponivel");
-                }else{
+              }else{
                     var row  = document.querySelector("#"+linhaId);
 
                     checkbox.checked = false;

@@ -64,4 +64,12 @@ public class SalaForm {
         return sala;
     }
 
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
 }
